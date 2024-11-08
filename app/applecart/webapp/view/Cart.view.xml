@@ -1,0 +1,29 @@
+<mvc:View
+    controllerName="applecart.controller.Cart"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Cart">
+        <content>
+            <List
+                id="cartList"
+                items="{
+                    path: 'cart>/items'
+                }">
+                <StandardListItem
+                    title="{cart>product/name}"
+                    description="{cart>product/description}"
+                    info="{cart>quantity} x {cart>product/price}"
+                    type="Inactive" />
+            </List>
+            <Input
+                placeholder="Discount Code"
+                id="discountInput" />
+            <Button
+                text="Apply Discount"
+                press=".onApplyDiscount" />
+            <Button
+                text="Proceed to Checkout"
+                press=".onProceedToCheckout" />
+        </content>
+    </Page>
+</mvc:View>

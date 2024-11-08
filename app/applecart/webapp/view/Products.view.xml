@@ -1,0 +1,36 @@
+<mvc:View
+    controllerName="applecart.controller.Products"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Products">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <SearchField
+                    placeholder="Search for products..."
+                    search=".onSearch"
+                    width="100%" />
+                <Select
+                    items="{
+                        path: 'categories>/',
+                        templateShareable: false
+                    }"
+                    change=".onCategoryChange">
+                    <core:Item key="{categories>key}" text="{categories>text}" />
+                </Select>
+                <List
+                    id="productList"
+                    items="{
+                        path: 'products>/',
+                        sorter: { path: 'price', descending: false }
+                    }">
+                    <StandardListItem
+                        title="{products>name}"
+                        description="{products>description}"
+                        info="{products>price}"
+                        type="Active"
+                        press=".onProductPress" />
+                </List>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

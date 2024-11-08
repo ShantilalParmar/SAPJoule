@@ -1,0 +1,38 @@
+<mvc:View
+    controllerName="applecart.controller.Homepage"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Welcome to Apple Cart">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <Text text="Welcome, {customer>/name}" />
+                <SearchField
+                    placeholder="Search for products..."
+                    search=".onSearch"
+                    width="100%" />
+                <List>
+                    <StandardListItem
+                        title="Products"
+                        type="Navigation"
+                        press=".onNavToProducts" />
+                    <StandardListItem
+                        title="Cart"
+                        type="Navigation"
+                        press=".onNavToCart" />
+                    <StandardListItem
+                        title="Purchase History"
+                        type="Navigation"
+                        press=".onNavToPurchaseHistory" />
+                    <StandardListItem
+                        title="Profile"
+                        type="Navigation"
+                        press=".onNavToProfile" />
+                    <StandardListItem
+                        title="Discounts"
+                        type="Navigation"
+                        press=".onNavToDiscounts" />
+                </List>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

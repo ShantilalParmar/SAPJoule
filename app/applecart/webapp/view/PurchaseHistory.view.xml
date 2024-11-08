@@ -1,0 +1,21 @@
+<mvc:View
+    controllerName="applecart.controller.PurchaseHistory"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Purchase History">
+        <content>
+            <List
+                id="purchaseHistoryList"
+                items="{
+                    path: 'purchases>/'
+                }">
+                <StandardListItem
+                    title="{purchases>purchaseID}"
+                    description="{purchases>purchaseDate}"
+                    info="{purchases>totalAmount}"
+                    type="Navigation"
+                    press=".onPurchasePress" />
+            </List>
+        </content>
+    </Page>
+</mvc:View>

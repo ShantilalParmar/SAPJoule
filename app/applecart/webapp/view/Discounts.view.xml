@@ -1,0 +1,20 @@
+<mvc:View
+    controllerName="applecart.controller.Discounts"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Discounts">
+        <content>
+            <List
+                id="discountList"
+                items="{
+                    path: 'discounts>/'
+                }">
+                <StandardListItem
+                    title="{discounts>code}"
+                    description="{discounts>percentage}% off"
+                    info="{discounts>validity}"
+                    type="Inactive" />
+            </List>
+        </content>
+    </Page>
+</mvc:View>

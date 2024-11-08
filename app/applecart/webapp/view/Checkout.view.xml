@@ -1,0 +1,29 @@
+<mvc:View
+    controllerName="applecart.controller.Checkout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Checkout">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <Text text="Customer Information" />
+                <Text text="{customer>/name}" />
+                <Text text="{customer>/email}" />
+                <Text text="Order Summary" />
+                <List
+                    id="checkoutList"
+                    items="{
+                        path: 'cart>/items'
+                    }">
+                    <StandardListItem
+                        title="{cart>product/name}"
+                        description="{cart>product/description}"
+                        info="{cart>quantity} x {cart>product/price}"
+                        type="Inactive" />
+                </List>
+                <Button
+                    text="Place Order"
+                    press=".onPlaceOrder" />
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

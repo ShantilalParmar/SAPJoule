@@ -87,8 +87,7 @@
                 "viewPath": "applecart.view",
                 "controlId": "app",
                 "controlAggregation": "pages",
-                "async": true,
-                "path": "applecart.view"
+                "async": true
             },
             "routes": [
                 {

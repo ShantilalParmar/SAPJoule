@@ -1,0 +1,24 @@
+<mvc:View
+    controllerName="applecart.controller.ProductDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Product Details">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <Text text="{products>name}" />
+                <Text text="{products>description}" />
+                <Text text="{products>price}" />
+                <Text text="{products>sku}" />
+                <Text text="{products>stock}" />
+                <Input
+                    placeholder="Quantity"
+                    value="1"
+                    type="Number"
+                    id="quantityInput" />
+                <Button
+                    text="Add to Cart"
+                    press=".onAddToCart" />
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>
