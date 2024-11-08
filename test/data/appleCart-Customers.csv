@@ -1,0 +1,6 @@
+ID;customerID;name;email;purchaseHistory;membershipStatus_code
+b3e09c68-97e7-4848-9999-e88e9a4fe7a5;1;John Doe;johndoe@example.com;[1001,1002];gold
+c22d4696-2c55-4316-97ec-9c0a1eda5ce3;2;Jane Smith;janesmith@example.com;[1003];silver
+267a2499-6f26-443d-9aa6-991532a6aa00;3;Alice Johnson;alicej@example.com;[1004,1005,1006];gold
+7890ffe3-9163-48b0-9140-9325bc1fe0dc;4;Bob Brown;bobbrown@example.com;[1007];standard
+015d72ed-c792-44d6-ac84-07bb6b692797;5;Charlie Davis;charlied@example.com;[1008,1009];silver

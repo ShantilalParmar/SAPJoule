@@ -1,0 +1,407 @@
+{
+    "namespace": "appleCart",
+    "entities": [
+        {
+            "name": "Customers",
+            "label": "Customer",
+            "associations": [
+                {
+                    "name": "Purchases",
+                    "target": "Purchases",
+                    "multiplicity": "many",
+                    "backAssociation": "customers"
+                }
+            ],
+            "labelPlural": "Customers",
+            "elements": [
+                {
+                    "name": "ID",
+                    "type": "UUID",
+                    "key": true,
+                    "label": ""
+                },
+                {
+                    "name": "name",
+                    "type": "String(50)",
+                    "label": "Name",
+                    "additionalInfo": "The full name of the customer.",
+                    "key": false,
+                    "essentialElement": true
+                },
+                {
+                    "name": "email",
+                    "type": "String(50)",
+                    "label": "Email",
+                    "additionalInfo": "The email address of the customer.",
+                    "key": false,
+                    "essentialElement": true
+                },
+                {
+                    "name": "customerID",
+                    "type": "Integer",
+                    "label": "Customer ID",
+                    "additionalInfo": "A unique identifier for each customer.",
+                    "essentialElement": true,
+                    "semanticKey": true
+                },
+                {
+                    "name": "purchaseHistory",
+                    "type": "String",
+                    "label": "Purchase History",
+                    "additionalInfo": "List of purchase transactions made by the customer.",
+                    "key": false,
+                    "essentialElement": false
+                },
+                {
+                    "name": "membershipStatus",
+                    "type": "String(20)",
+                    "label": "Membership Status",
+                    "additionalInfo": "Indicates membership level (e.g., standard, silver, gold) based on cumulative purchases.",
+                    "key": false,
+                    "essentialElement": false,
+                    "values": [
+                        "standard",
+                        "silver",
+                        "gold"
+                    ],
+                    "hasFixedValuesList": true,
+                    "hasColorsOrCriticality": true,
+                    "reason": "Membership status often implies a level of benefit or privilege, with higher statuses generally being more favorable.",
+                    "mapping": [
+                        {
+                            "value": "standard",
+                            "colorOrCriticality": "neutral",
+                            "reason": "Standard membership is the baseline and does not imply any special benefits or drawbacks."
+                        },
+                        {
+                            "value": "silver",
+                            "colorOrCriticality": "positive",
+                            "reason": "Silver membership typically indicates a higher level of engagement or benefit compared to standard."
+                        },
+                        {
+                            "value": "gold",
+                            "colorOrCriticality": "positive",
+                            "reason": "Gold membership usually represents the highest level of benefit or privilege."
+                        }
+                    ],
+                    "criticalities": [
+                        0,
+                        3,
+                        3
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Products",
+            "label": "Product",
+            "associations": [
+                {
+                    "name": "Purchases",
+                    "target": "Purchases",
+                    "multiplicity": "many",
+                    "backAssociation": "products"
+                }
+            ],
+            "labelPlural": "Products",
+            "elements": [
+                {
+                    "name": "ID",
+                    "type": "UUID",
+                    "key": true,
+                    "label": ""
+                },
+                {
+                    "name": "name",
+                    "type": "String(50)",
+                    "label": "Name",
+                    "additionalInfo": "The name of the product.",
+                    "key": false,
+                    "essentialElement": true
+                },
+                {
+                    "name": "description",
+                    "type": "String(255)",
+                    "label": "Description",
+                    "additionalInfo": "A brief description of the product, highlighting key features.",
+                    "key": false,
+                    "essentialElement": false
+                },
+                {
+                    "name": "price",
+                    "type": "Decimal",
+                    "label": "Price",
+                    "additionalInfo": "The price of the product.",
+                    "key": false,
+                    "essentialElement": true
+                },
+                {
+                    "name": "category",
+                    "type": "String(50)",
+                    "label": "Category",
+                    "additionalInfo": "Category of the product (e.g., iPhone, iPad, MacBook, accessories).",
+                    "key": false,
+                    "essentialElement": true,
+                    "values": [
+                        "iPhone",
+                        "iPad",
+                        "MacBook",
+                        "accessories"
+                    ],
+                    "hasFixedValuesList": true,
+                    "hasColorsOrCriticality": false,
+                    "reason": "Product categories such as iPhone, iPad, MacBook, and accessories are neutral classifications and do not imply any inherent good or bad value.",
+                    "mapping": []
+                },
+                {
+                    "name": "stockQuantity",
+                    "type": "Integer",
+                    "label": "Stock Quantity",
+                    "additionalInfo": "Quantity of the product available in stock.",
+                    "key": false,
+                    "essentialElement": true
+                },
+                {
+                    "name": "sku",
+                    "type": "String(50)",
+                    "label": "Sku",
+                    "additionalInfo": "Unique stock-keeping unit identifier for tracking inventory.",
+                    "key": false,
+                    "essentialElement": true
+                }
+            ]
+        },
+        {
+            "name": "Purchases",
+            "label": "Purchase",
+            "associations": [
+                {
+                    "name": "customers",
+                    "target": "Customers",
+                    "multiplicity": "one",
+                    "isComposition": false
+                },
+                {
+                    "name": "products",
+                    "target": "Products",
+                    "multiplicity": "one",
+                    "isComposition": false
+                },
+                {
+                    "name": "discounts",
+                    "target": "Discounts",
+                    "multiplicity": "one",
+                    "isComposition": false
+                }
+            ],
+            "labelPlural": "Purchases",
+            "elements": [
+                {
+                    "name": "ID",
+                    "type": "UUID",
+                    "key": true,
+                    "label": ""
+                },
+                {
+                    "name": "purchaseID",
+                    "type": "Integer",
+                    "label": "Purchase ID",
+                    "additionalInfo": "Unique identifier for each purchase transaction.",
+                    "essentialElement": true,
+                    "semanticKey": true
+                },
+                {
+                    "name": "purchaseDate",
+                    "type": "DateTime",
+                    "label": "Purchase Date",
+                    "additionalInfo": "Date and time the purchase was made.",
+                    "key": false,
+                    "essentialElement": true
+                },
+                {
+                    "name": "totalAmount",
+                    "type": "Decimal",
+                    "label": "Total Amount",
+                    "additionalInfo": "Total amount of the purchase.",
+                    "key": false,
+                    "essentialElement": true
+                },
+                {
+                    "name": "customerID",
+                    "type": "Integer",
+                    "label": "Customer ID",
+                    "additionalInfo": "ID of the customer making the purchase (foreign key).",
+                    "key": false,
+                    "essentialElement": true
+                },
+                {
+                    "name": "productID",
+                    "type": "Integer",
+                    "label": "Product ID",
+                    "additionalInfo": "ID of the product purchased (foreign key).",
+                    "key": false,
+                    "essentialElement": true
+                },
+                {
+                    "name": "quantity",
+                    "type": "Integer",
+                    "label": "Quantity",
+                    "additionalInfo": "Quantity of the product purchased.",
+                    "key": false,
+                    "essentialElement": true
+                }
+            ]
+        },
+        {
+            "name": "Discounts",
+            "label": "Discount",
+            "associations": [
+                {
+                    "name": "Purchases",
+                    "target": "Purchases",
+                    "multiplicity": "many",
+                    "backAssociation": "discounts"
+                }
+            ],
+            "labelPlural": "Discounts",
+            "elements": [
+                {
+                    "name": "ID",
+                    "type": "UUID",
+                    "key": true,
+                    "label": ""
+                },
+                {
+                    "name": "discountCode",
+                    "type": "String(50)",
+                    "label": "Discount Code",
+                    "additionalInfo": "Unique code for each discount offer.",
+                    "essentialElement": true,
+                    "semanticKey": true
+                },
+                {
+                    "name": "discountPercentage",
+                    "type": "Decimal",
+                    "label": "Discount Percentage",
+                    "additionalInfo": "Percentage off the total purchase.",
+                    "key": false,
+                    "essentialElement": true
+                },
+                {
+                    "name": "validityPeriod",
+                    "type": "String(50)",
+                    "label": "Validity Period",
+                    "additionalInfo": "Start and end dates for the discount offer.",
+                    "key": false,
+                    "essentialElement": true
+                },
+                {
+                    "name": "applicableProducts",
+                    "type": "String",
+                    "label": "Applicable Products",
+                    "additionalInfo": "List of product categories or specific products eligible for the discount.",
+                    "key": false,
+                    "essentialElement": false
+                }
+            ]
+        }
+    ],
+    "service": {
+        "name": "appleCartSrv",
+        "path": "srv/service.cds"
+    },
+    "applications": [
+        {
+            "pages": [
+                {
+                    "type": "ListReport",
+                    "entityType": "Products",
+                    "listReportContent": {
+                        "loadDataOnAppLaunch": "Enabled",
+                        "tables": [
+                            {
+                                "title": "Available Products",
+                                "id": "ProductsTable",
+                                "baseEntityType": "Products",
+                                "columns": [
+                                    "name",
+                                    "sku",
+                                    "category",
+                                    "price",
+                                    "stockQuantity"
+                                ]
+                            }
+                        ],
+                        "filters": [
+                            "category",
+                            "price",
+                            "stockQuantity"
+                        ]
+                    }
+                },
+                {
+                    "type": "ObjectPage",
+                    "entityType": "Products",
+                    "objectPageContent": {
+                        "tableSectionAssociations": [
+                            "Purchases"
+                        ],
+                        "sections": [
+                            {
+                                "title": "Product Details",
+                                "id": "productDetails",
+                                "fields": [
+                                    "name",
+                                    "description",
+                                    "price",
+                                    "category",
+                                    "stockQuantity",
+                                    "sku"
+                                ]
+                            },
+                            {
+                                "title": "Purchases",
+                                "id": "purchases",
+                                "isTableSection": true,
+                                "fields": [
+                                    "Purchases/purchaseID",
+                                    "Purchases/purchaseDate",
+                                    "Purchases/totalAmount",
+                                    "Purchases/customerID",
+                                    "Purchases/productID",
+                                    "Purchases/quantity"
+                                ]
+                            }
+                        ],
+                        "tabs": [
+                            {
+                                "title": "General Information",
+                                "id": "generalInfo",
+                                "subsections": [
+                                    "productDetails"
+                                ]
+                            },
+                            {
+                                "title": "Purchase History",
+                                "id": "purchaseHistory",
+                                "subsections": [
+                                    "purchases"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "ObjectPage",
+                    "entityType": "Purchases",
+                    "objectPageContent": {
+                        "tableSectionAssociations": [],
+                        "sections": [],
+                        "tabs": []
+                    }
+                }
+            ],
+            "name": "appleCart"
+        }
+    ]
+}

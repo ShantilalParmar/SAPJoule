@@ -1,0 +1,75 @@
+User prompt: Update model and service
+User attached information: ﻿
+AppleCart
+
+Overview
+This document outlines the architecture for a full-stack application that enables customers to purchase Apple products and accessories, manage product listings, handle transactions, and streamline the checkout process.
+
+Data Entities
+
+1.Customers
+Description: Represents customers who are purchasing Apple products and accessories.
+Fields:
+name (String): The full name of the customer.
+email (String): The email address of the customer.
+customerID (Integer, 8-digit): A unique identifier for each customer.
+purchaseHistory (Array): List of purchase transactions made by the customer.
+membershipStatus (String): Indicates membership level (e.g., standard, silver, gold) 		based on cumulative purchases.
+
+2.Products
+Description: Represents Apple products and accessories available for purchase.
+Fields:
+name (String): The name of the product.	
+description (String): A brief description of the product, highlighting key features.
+price (Decimal): The price of the product.
+category (String): Category of the product (e.g., iPhone, iPad, MacBook, accessories).
+stockQuantity (Integer): Quantity of the product available in stock.
+sku (String): Unique stock-keeping unit identifier for tracking inventory.
+
+3.Purchases
+Description: Represents individual purchase transactions made by customers for Apple products.
+Fields:
+purchaseID (Integer): Unique identifier for each purchase transaction.
+purchaseDate (DateTime): Date and time the purchase was made.
+totalAmount (Decimal): Total amount of the purchase.
+customerID (Integer): ID of the customer making the purchase (foreign key).
+productID (Integer): ID of the product purchased (foreign key).
+quantity (Integer): Quantity of the product purchased.
+
+4.Carts
+Description: Represents a shopping cart where customers add products before finalizing their purchase.
+Fields:
+cartID (Integer): Unique identifier for each cart session.
+customerID (Integer): ID of the customer associated with the cart (foreign key).
+items (Array): List of items in the cart, including productID, quantity, and subtotal.
+totalAmount (Decimal): The total amount for all items in the cart.
+
+5.Discounts
+Description: Represents discount offers or coupons applicable at checkout.
+Fields:
+discountCode (String): Unique code for each discount offer.
+discountPercentage (Decimal): Percentage off the total purchase.
+validityPeriod (DateRange): Start and end dates for the discount offer.
+applicableProducts (Array): List of product categories or specific products eligible for the discount.
+
+Relationships
+1.Customers to Purchases: One-to-Many
+-Each customer can have multiple purchase records.
+
+2.Products to Purchases: One-to-Many
+-Each product can be purchased multiple times by different customers.
+
+3.Customers to Carts: One-to-One
+-Each customer can have only one active cart at a time.
+
+4.Discounts to Purchases: Optional One-to-Many
+-A discount can apply to multiple purchases if it meets the conditions.
+
+
+Acceptance Criteria
+
+Scenario 1: View All Available Products
+Given that I am logged into the AppleCart Application, when I access the product catalog, I should be able to view a list of all available products without additional filters. The product list should display: Product Name, SKU, Category, Price, and Stock Availability. The list of filters should include Category, Price Range, and Stock Availability.
+
+Scenario 2: View Product Details
+Given that I am logged into the AppleCart Application, when I select a specific product from the product catalog, I should be able to view the product details including a description, specifications, and available stock quantity. Additionally, I should be able to see related accessories or compatible products.

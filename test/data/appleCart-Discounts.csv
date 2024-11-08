@@ -1,0 +1,8 @@
+ID;discountCode;discountPercentage;validityPeriod;applicableProducts
+7daa1f06-5cf6-4a57-8fc7-a635b35c5f77;SUMMER21;10.00;2021-06-01 to 2021-08-31;iPhone,iPad
+7d2dae3a-4af9-446a-965c-8fa8eba115d0;BACK2SCHOOL;15.00;2021-08-01 to 2021-09-30;MacBook,accessories
+953aa2e9-a0a6-49ef-9ede-c31c7fbacbe9;HOLIDAY20;20.00;2021-12-01 to 2021-12-31;all
+1caf0ddf-fc7b-4e3d-b84f-4b6b4f5dc59c;NEWYEAR22;5.00;2022-01-01 to 2022-01-31;iPhone,MacBook
+19f68c94-c34c-4942-90e3-d8383fa6bdaf;SPRINGSALE;12.00;2022-03-01 to 2022-03-31;iPad,accessories
+ec020f97-a490-464d-8b63-19bc3576c400;BLACKFRIDAY;25.00;2021-11-26 to 2021-11-26;all
+a6e94034-2fa2-4c75-8426-9ba2aeccf15a;CYBERMONDAY;20.00;2021-11-29 to 2021-11-29;all

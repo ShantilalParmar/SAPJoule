@@ -1,0 +1,8 @@
+ID;name;description;price;category_code;stockQuantity;sku
+16d9e1ab-19f7-40aa-b880-4ef4b958ccf0;iPhone 13;Latest model with A15 Bionic chip;799.99;iPhone;50;IP13-001
+60df49cb-7de3-48b7-ae44-260fa61aa92f;MacBook Pro 16;High performance laptop with M1 chip;2499.99;MacBook;30;MBP16-002
+a3407e0e-7139-4aae-a7f8-035fc0eb5040;iPad Air;Lightweight and powerful tablet;599.99;iPad;100;IPA-003
+4745edd1-417a-4419-8ce4-943e719a8edb;Apple Watch Series 7;Advanced health features and larger display;399.99;accessories;200;AWS7-004
+7b9e2963-fff6-4e64-9856-34fd6913a071;AirPods Pro;Noise-cancelling wireless earbuds;249.99;accessories;150;APP-005
+d1181b25-d4db-4500-808d-8c2a7de66056;Magic Keyboard;Wireless keyboard with touch ID;99.99;accessories;75;MK-006
+825c418d-cf1d-4998-9877-824f3a76dcd4;Apple Pencil;Precision stylus for iPad;129.99;accessories;120;AP-007
